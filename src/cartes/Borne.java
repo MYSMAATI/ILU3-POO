@@ -13,6 +13,6 @@ public class Borne extends Cartes{
 	}
 	
 	public String toString() {
-		return ("Borne " + km);
+		return ("Borne " + km + "\n");
 	}
 }

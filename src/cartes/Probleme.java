@@ -10,5 +10,6 @@ public abstract class Probleme extends Cartes {
 	public Type getType() {
 		return this.type;
 	}
+	
 
 }
