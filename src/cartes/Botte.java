@@ -7,7 +7,7 @@ public class Botte extends Probleme {
 	}
 	
 	public String toString() {
-		return getType().getType();
+		return "Botte " + getType().getType();
 	}
 
 }

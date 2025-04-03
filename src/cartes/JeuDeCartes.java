@@ -1,22 +1,39 @@
 package cartes;
 
 public class JeuDeCartes {
-	public JeuDeCartes() {
-		
-	}
-	
-	public String affichageJeuDeCartes() {
+	public String affichageJeuCartes() {
 		Configuration[] jeuDeCartes = jeu();
 		StringBuilder string = new StringBuilder();
 		
-		string.append("JEU : \n");
-		
 		for(int i = 0; i < jeuDeCartes.length; i++) {
-			string.append(jeuDeCartes[i].getNbExemplaires() + " " + jeuDeCartes[i].getCarte().getString() + "\n");
+			string.append(jeuDeCartes[i].getNbExemplaires() + " " + jeuDeCartes[i].getCarte().toString() + "\n");
 		}
 		
 		
 		return string.toString();
+	}
+	
+	public Carte[] donnerCartes() {
+		Configuration[] jeuDeCartes = jeu();
+		
+		int totalCartes = 0;
+		
+		for(int i = 0; i < jeuDeCartes.length; i++) {
+			totalCartes = totalCartes + jeuDeCartes[i].getNbExemplaires();
+		}
+		
+		Carte[] tableau = new Carte[totalCartes];
+		
+		int it = 0;
+		
+		for(int i = 0; i < jeuDeCartes.length; i++) {
+			for(int j = 0 ; j < jeuDeCartes[i].getNbExemplaires(); j++) {
+				tableau[j + it] = jeuDeCartes[i].getCarte();
+				it++;
+			}
+		}
+		
+		return tableau;
 	}
 	
 	//public Cartes[] donnerCartes() {
@@ -49,16 +66,16 @@ public class JeuDeCartes {
 		return jeu;
 	}
 	
-	private class Configuration extends Cartes{
+	private class Configuration{
 		private int nbExemplaires;
-		private Cartes carte;
+		private Carte carte;
 		
-		private Configuration(Cartes carte, int nbExemplaires) {
+		private Configuration(Carte carte, int nbExemplaires) {
 			this.nbExemplaires = nbExemplaires;
 			this.carte = carte;
 		}
 		
-		public Cartes getCarte() {
+		public Carte getCarte() {
 			return carte;
 		}
 		
