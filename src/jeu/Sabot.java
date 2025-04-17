@@ -22,6 +22,18 @@ public class Sabot <E extends Carte> implements Iterable<E>{
 		return(nbCartes == 0);
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder string = new StringBuilder();
+		
+		for(int i = 0; i < cartes.length; i++) {
+			string.append(cartes[i]);
+			string.append('\n');
+		}
+		
+		return string.toString();
+	}
+	
 	public E piocher() {
 		Iterator<E> iterateur = this.iterator();
 		if(!iterateur.hasNext()) {

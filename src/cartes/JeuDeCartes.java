@@ -6,7 +6,7 @@ import java.util.List;
 public class JeuDeCartes {
 	private List<Carte> liste_carte = new ArrayList<>();
 	
-//	liste_carte.add(new Borne(25));
+//	public Jeu
 	
 	
 	
@@ -36,11 +36,12 @@ public class JeuDeCartes {
 		
 		for(int i = 0; i < jeuDeCartes.length; i++) {
 			for(int j = 0 ; j < jeuDeCartes[i].getNbExemplaires(); j++) {
-				tableau[j + it] = jeuDeCartes[i].getCarte();
+				tableau[it] = jeuDeCartes[i].getCarte();
 				it++;
 			}
 		}
 		
+		System.out.println(totalCartes);
 		return tableau;
 	}
 	
@@ -102,7 +103,7 @@ public class JeuDeCartes {
 			if (jeu[i].equals(borne25)){
 				nb_borne_25++;
 			} else if (jeu[i].equals(borne50)){
-				nb_borne_25++;
+				nb_borne_50++;
 			} else if (jeu[i].equals(borne75)){
 				nb_borne_75++;
 			} else if (jeu[i].equals(borne100)){
@@ -138,11 +139,12 @@ public class JeuDeCartes {
 			} else if (jeu[i].equals(botteAccident)){
 				nbBotteAccident++;
 			}
+		}
+			
+			
 			
 			//Resultat
-			if(nb_borne_25 != 10) {
-				return false;
-			} else if (nb_borne_50 != 10) {
+			if (nb_borne_25 != 10) {
 				return false;
 			} else if (nb_borne_50 != 10) {
 				return false;
@@ -152,31 +154,39 @@ public class JeuDeCartes {
 				return false;
 			} else if (nb_borne_200 != 4) {
 				return false;
-			} else if (nbParadeFeu != 10) {
+			} else if (nbParadeFeu != 14) {
 				return false;
-			} else if (nbParadeEssence != 10) {
+			} else if (nbParadeEssence != 6) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbParadeAccident != 6) {
 				return false;
-			} else if (nbParadeAccident != 10) {
+			} else if (nbParadeCrevaison != 6) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbFinLimite != 6) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbDebutLimite != 4) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbAttaqueFeu != 5) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbAttaqueEssence != 3) {
 				return false;
-			} else if (nbParadeCrevaison != 10) {
+			} else if (nbAttaqueAccident != 3) {
+				return false;
+			} else if (nbAttaqueCrevaison != 3) {
+				return false;
+			} else if (nbBotteCrevaison != 1) {
+				return false;
+			} else if (nbBotteCrevaison != 1) {
+				return false;
+			} else if (nbBotteCrevaison != 1) {
+				return false;
+			} else if (nbBotteCrevaison != 1) {
 				return false;
 			}
 			
+			
 			return true;
-		}
 		
-		
-		return true;
 	}
 	
 	public Configuration[] jeu() {
